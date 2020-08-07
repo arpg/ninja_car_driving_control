@@ -1,0 +1,9 @@
+*.fdb*
+*.fls*
+*.aux
+*.log
+*.out
+Landry*.pdf
+*.toc
+*.synctex*
+.DS_Store

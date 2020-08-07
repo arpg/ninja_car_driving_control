@@ -1,0 +1,7 @@
+<launch>
+	<include file="$(find servo_controller)/launch/controller_manager.launch" />
+	<include file="$(find servo_controller)/launch/controller_spawner.launch" />
+
+	<node pkg="servo_controller" name="servo_controller_node" type="servo_controller_node" output="screen" />
+
+</launch>

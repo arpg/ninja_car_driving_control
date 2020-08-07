@@ -1,0 +1,25 @@
+front_controller:
+    controller:
+        package: dynamixel_controllers
+        module: joint_position_controller
+        type: JointPositionController
+    joint_name: front_joint
+    joint_speed: 2.0
+    motor:
+        id: 0
+        init: 1087
+        min: 925
+        max: 1250
+
+back_controller:
+    controller:
+        package: dynamixel_controllers
+        module: joint_position_controller
+        type: JointPositionController
+    joint_name: back_joint
+    joint_speed: 2.0
+    motor:
+        id: 1
+        init: 1115
+        min: 915
+        max: 1315
