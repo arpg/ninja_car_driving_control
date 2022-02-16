@@ -1,8 +1,9 @@
 <launch>
 
 	<include file="$(find servo_controller)/launch/start_servo_controller.launch" />
-	<include file="$(find ros_pololu_servo)/launch/pololu_example.launch" />
-
+	<!--<include file="$(find ros_pololu_servo)/launch/pololu_example.launch" />
+-->
+	<include file="$(find vesc_driver)/launch/vesc_driver_node.launch"/>
 	<node pkg="drive_control" type="control_node.py" name="control_node"/>
 
 </launch>

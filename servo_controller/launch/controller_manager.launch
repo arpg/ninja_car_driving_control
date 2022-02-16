@@ -7,7 +7,7 @@
             namespace: dxl_manager
             serial_ports:
                 steer_port:
-                    port_name: "/dev/ttyUSB0"
+                    port_name: "/dev/dynamixel"
                     baud_rate: 115200
                     min_motor_id: 0
                     max_motor_id: 1

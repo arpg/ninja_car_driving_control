@@ -1,0 +1,6 @@
+<launch>
+  
+  <include file="$(find drive_control)/launch/remote_drive.launch"/>
+  <include file="$(find drive_control)/launch/remote_teleop.launch"/>
+
+</launch>
