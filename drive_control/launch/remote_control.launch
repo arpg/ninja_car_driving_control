@@ -1,5 +1,6 @@
 <launch>
-  <machine name="rock64" address="rock64" user="rock64" password="rock64" env-loader="/home/rock64/catkin_ws/devel/env.sh" default="true"/>
+    <machine name="N01" address="N01" user="arpg" password="arpg4ever" env-loader="/home/arpg/catkin_ws/devel/env.sh" default="true"/>
+    <machine name="rock64" address="rock64" user="rock64" password="rock64" env-loader="/home/rock64/catkin_ws/devel/env.sh" default="false"/>
 
 	<node name="dynamixel_manager" pkg="servo_controller" type="controller_manager.py" required="true" output="screen" machine="rock64">
         <rosparam>
@@ -17,7 +18,7 @@
 	<rosparam file="$(find servo_controller)/config/dynamixel_joint_controllers.yaml" command="load"/>
     
     <!-- start specified joint controllers -->
-<!--    <node name="dynamixel_controller_spawner" pkg="dynamixel_controllers" type="controller_spawner.py" -->
+    <!-- <node name="dynamixel_controller_spawner" pkg="dynamixel_controllers" type="controller_spawner.py" -->
     <node name="dynamixel_controller_spawner" pkg="servo_controller" type="controller_spawner.py" machine="rock64"
           args="--manager=dxl_manager
                 --port=steer_port
@@ -26,10 +27,14 @@
                 back_controller"
           output="screen"/>
 
-  <node pkg="vesc_driver" type="vesc_driver_node" name="$(arg node_name)" respawn="true"
+    <!-- Accepts commanded VESC speed in electrical RPM. Electrical RPM is the mechanical RPM
+         multiplied by the number of motor poles. Any value is accepted by this
+         driver. However, note that the VESC may impose a more restrictive bounds on the
+         range depending on its configuration. -->
+    <node pkg="vesc_driver" type="vesc_driver_node" name="vesc_node" respawn="true"
         output="screen" machine="rock64" >
-    <param name="port" value="/dev/vesc" />
-  </node>
+        <param name="port" value="/dev/vesc" />
+    </node>
 
 	<node pkg="drive_control" type="control_node.py" name="control_node" machine="rock64"/>
 

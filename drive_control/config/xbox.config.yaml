@@ -1,6 +1,6 @@
 axis_speed: 4  # Right thumb stick vertical
-scale_speed: 4085 # 0.245 m/s / 1000
-scale_speed_turbo: 8170
+scale_speed: 4085 # 0.245 m/s / 1000, 4085 = 1 m/s, 20408 = 5 m/s
+scale_speed_turbo: 20408
 
 axis_steer: 0  # Left thumb stick horizontal
 scale_steer: -0.23
