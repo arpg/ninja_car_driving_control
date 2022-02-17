@@ -7,9 +7,9 @@ front_controller:
     joint_speed: 2.0
     motor:
         id: 0
-        init: 1125
-        min: 975
-        max: 1275
+        init: 1140
+        min: 965
+        max: 1315
 
 back_controller:
     controller:
@@ -20,6 +20,6 @@ back_controller:
     joint_speed: 2.0
     motor:
         id: 1
-        init: 1115
-        min: 915
-        max: 1315
+        init: 1100
+        min: 925
+        max: 1275
