@@ -1,11 +1,15 @@
 <launch>
 
-  <arg name="machine" default="rock64"/>
+    <arg name="machine" default="rock64"/>
 
-  <include file="$(find drive_control)/launch/remote_hosts.launch"/>
+    <include file="$(find drive_control)/launch/remote_hosts.launch"/>
 
-  <include file="$(find drive_control)/launch/control.launch">
-      <arg name="machine" value="$(arg machine)"/>
-  </include>
+    <include file="$(find drive_control)/launch/remote_drive.launch">
+        <arg name="machine" value="$(arg machine)"/>
+    </include>
+    
+    <include file="$(find drive_control)/launch/remote_teleop.launch">
+        <arg name="machine" value="$(arg machine)"/>
+    </include>
 
 </launch>
