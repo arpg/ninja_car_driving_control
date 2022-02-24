@@ -20,6 +20,6 @@ back_controller:
     joint_speed: 2.0
     motor:
         id: 1
-        init: 1100
-        min: 925
-        max: 1275
+        init: 1075
+        min: 900
+        max: 1250
