@@ -1,6 +1,0 @@
-<launch>
-
-  <include file="$(find drive_control)/launch/drive.launch"/>
-  <include file="$(find drive_control)/launch/teleop.launch"/>
-
-</launch>

@@ -1,0 +1,13 @@
+<launch>
+
+    <arg name="machine" default=""/>
+    
+    <include file="$(find drive_control)/launch/drive.launch">
+        <arg name="machine" value="$(arg machine)"/>
+    </include>
+    
+    <include file="$(find drive_control)/launch/teleop.launch">
+        <arg name="machine" value="$(arg machine)"/>
+    </include>
+
+</launch>
