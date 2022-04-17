@@ -1,0 +1,33 @@
+<launch>
+
+  <arg name="launch_rviz"          default="false"/>
+
+  <arg name="vehicle_name"         default="N01"/>
+  <arg name="vehicle_topic_prefix" default="/"/>
+  <arg name="vehicle_tf_prefix"    default=""/>
+  <arg name="fixed_frame"          default="map"/>
+
+  <node pkg="rviz" type="rviz" name="odom_tools_rviz" args="-d $(find drive_control)/rviz/vicon.rviz" if="$(arg launch_rviz)"/>
+
+  <!-- <node pkg="carplanner_tools" type="pose2odom" name="pose2odom" output="screen">
+    <param name="pose_topic" value="/vrpn_client_node/$(arg vehicle_name)/pose"/>
+    <param name="odom_topic" value="/vrpn_client_node/$(arg vehicle_name)/odom"/>
+    <param name="twist_topic" value="/vrpn_client_node/$(arg vehicle_name)/twist"/>
+    <param name="child_frame_id" value="$(arg vehicle_name)"/>
+    <param name="avg_window_length" value="1.0"/>
+  </node> -->
+
+  <node pkg="carplanner_tools" type="tf2odom" name="tf2odom" output="log">
+    <param name="parent_frame" value="$(arg fixed_frame)"/>
+    <param name="child_frame" value="$(arg vehicle_tf_prefix)base_link"/>
+    <param name="odom_topic" value="$(arg vehicle_topic_prefix)odom"/>
+    <param name="rate" value="100"/>
+    <param name="vel_avg_len" value="0.1"/>
+  </node>
+
+  <node pkg="carplanner_tools" type="odom_reframer" name="odom_reframer" output="log">
+    <param name="odom_in_topic" value="$(arg vehicle_topic_prefix)odom"/>
+    <param name="odom_out_topic" value="$(arg vehicle_topic_prefix)odom_chassis"/>
+  </node>
+
+</launch>
