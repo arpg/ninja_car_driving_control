@@ -1,3 +1,6 @@
 [submodule "vesc"]
 	path = vesc
 	url = git@github.com:mit-racecar/vesc
+[submodule "vicon_tools"]
+	path = vicon_tools
+	url = git@github.com:arpg/vicon_tools
