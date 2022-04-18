@@ -4,3 +4,6 @@
 [submodule "vicon_tools"]
 	path = vicon_tools
 	url = git@github.com:arpg/vicon_tools
+[submodule "drive_control"]
+	path = drive_control
+	url = git@github.com:arpg/drive_control
