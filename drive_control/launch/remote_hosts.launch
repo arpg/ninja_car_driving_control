@@ -1,7 +1,8 @@
 <launch>
 
-    <machine name="N01" address="N01" user="arpg" password="arpg4ever" env-loader="/home/arpg/catkin_ws/devel/env.sh" default="false"/>
-    
+    <machine name="ubuntu" address="ubuntu" user="arpg" password="arpg4ever" env-loader="/home/arpg/ninja_ws/devel/env.sh" default="false"/>
+    <!-- <machine name="N01" address="N01" user="arpg" password="arpg4ever" env-loader="/home/arpg/ninja_ws/devel/env.sh" default="false"/> -->
+
     <machine name="rock64" address="rock64" user="rock64" password="rock64" env-loader="/home/rock64/catkin_ws/devel/env.sh" default="false"/>
 
 </launch>
