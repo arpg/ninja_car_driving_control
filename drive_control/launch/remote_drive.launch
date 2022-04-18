@@ -1,6 +1,8 @@
 <launch>
 
-    <arg name="machine" default=""/>
+    <arg name="machine" default="rock64"/>
+
+    <include file="$(find drive_control)/launch/remote_hosts.launch"/>
 
 	<node name="dynamixel_manager" pkg="servo_controller" type="controller_manager.py" output="screen" machine="$(arg machine)">
         <rosparam>
