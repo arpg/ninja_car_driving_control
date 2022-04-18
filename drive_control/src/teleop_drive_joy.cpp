@@ -47,16 +47,16 @@ TeleopDriveJoy::TeleopDriveJoy(ros::NodeHandle* nh, ros::NodeHandle* nh_param)
   nh_param->param<int>("enable_button", pimpl_->enable_button, 0);
   nh_param->param<int>("enable_turbo_button", pimpl_->enable_turbo_button, -1);
 
-  if (nh_param->getParam("axis_speed", pimpl_->axis_map["speed"]))
+  if (nh_param->getParam("axis_control_value", pimpl_->axis_map["control_value"]))
   {
-    nh_param->getParam("scale_speed", pimpl_->scale_map["normal"]["speed"]);
-    nh_param->getParam("scale_speed_turbo", pimpl_->scale_map["turbo"]["speed"]);
+    nh_param->getParam("scale_control_value", pimpl_->scale_map["normal"]["control_value"]);
+    nh_param->getParam("scale_control_value_turbo", pimpl_->scale_map["turbo"]["control_value"]);
   }
   else
   {
-    nh_param->param<int>("axis_speed", pimpl_->axis_map["speed"], 1);
-    nh_param->param<double>("scale_speed", pimpl_->scale_map["normal"]["speed"], 0.5);
-    nh_param->param<double>("scale_speed_turbo", pimpl_->scale_map["turbo"]["speed"], 1.0);
+    nh_param->param<int>("axis_control_value", pimpl_->axis_map["control_value"], 1);
+    nh_param->param<double>("scale_control_value", pimpl_->scale_map["normal"]["control_value"], 0.5);
+    nh_param->param<double>("scale_control_value_turbo", pimpl_->scale_map["turbo"]["control_value"], 1.0);
   }
 
   if (nh_param->getParam("axis_steer", pimpl_->axis_map["steer"]))
@@ -106,7 +106,7 @@ void TeleopDriveJoy::Impl::sendDriveMsg(const sensor_msgs::Joy::ConstPtr& joy_ms
   // Initializes with zeros by default.
   drive_control::DriveCommand drive_msg;
 
-  drive_msg.speed = getVal(joy_msg, axis_map, scale_map[which_map], "speed");
+  drive_msg.control_value = getVal(joy_msg, axis_map, scale_map[which_map], "control_value");
   drive_msg.front_steer_angle = getVal(joy_msg, axis_map, scale_map[which_map], "steer");
   drive_msg.rear_steer_angle = 0.0;
 

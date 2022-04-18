@@ -2,7 +2,7 @@
 
     <arg name="machine" default=""/>
 
-    <arg name="joy_config" default="xbox" />
+    <arg name="joy_config" default="xbox360_speed_metric" />
     <arg name="joy_dev" default="/dev/input/js0" />
     <arg name="config_filepath" default="$(find drive_control)/config/$(arg joy_config).config.yaml" />
     <arg name="joy_topic" default="joy" />

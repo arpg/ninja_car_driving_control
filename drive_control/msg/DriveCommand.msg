@@ -1,3 +1,6 @@
-float64 speed
+int16 CONTROL_MODE_SPEED=0
+int16 CONTROL_MODE_ACCEL=1
+
+float64 control_value
 float32 front_steer_angle
 float32 rear_steer_angle
