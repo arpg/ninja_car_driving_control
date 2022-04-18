@@ -1,3 +1,0 @@
-float64 speed
-float32 front_steer_angle
-float32 rear_steer_angle
